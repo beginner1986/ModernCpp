@@ -1,44 +1,20 @@
-#include <iostream>
+// print all the numners divisible by 3 and 5
 
-int sumProperDivisors(const int num);
-void printAbundant(const int limit);
+#include <iostream>
 
 int main()
 {
 	int limit;
-	std::cout << "limit = ";
+	std::cout << "Type the limit: ";
 	std::cin >> limit;
 
-	printAbundant(limit);
+	long long result = 0;
+	for (unsigned int i = 1; i <= limit; i++)
+		if (i % 3 == 0 || i % 5 == 0)
+			result += i;
+
+	std::cout << "The result is " << result << std::endl;
+	std::cin.get();
 
 	return 0;
-}
-
-int sumProperDivisors(const int num)
-{
-	int result = 1;
-
-	for (int i = 2; i <= std::sqrt(num); i++)
-	{
-		if (num % i == 0)
-		{
-			if (i == (num / i))
-				result += i;
-			else
-				result += (i + num / i);
-		}
-	}
-
-	return result;
-}
-
-void printAbundant(const int limit)
-{
-	for (int num = 10; num <= limit; num++)
-	{
-		int sum = sumProperDivisors(num);
-
-		if (sum > num)
-			std::cout << num << " ; abundance = " << sum - num << std::endl;
-	}
 }
