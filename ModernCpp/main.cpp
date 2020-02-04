@@ -4,18 +4,16 @@ bool isPrime(const int x);
 
 int main()
 {
-	int limit = 0;
+	int limit;
 	std::cout << "limit = ";
 	std::cin >> limit;
 
-	for (int i = limit - 1; i > 1; i--)
+	std::cout << std::endl << "Results: " << std::endl;
+
+	for (int i = 2; i < limit - 6; i++)
 	{
-		if (isPrime(i))
-		{
-			std::cout << "The greatest prime number smaller than " 
-				<< limit << " is " << i << "." << std::endl;
-			break;
-		}
+		if (isPrime(i) && isPrime(i + 6))
+			std::cout << i << " - " << (i + 6) << std::endl;
 	}
 
 	return 0;
