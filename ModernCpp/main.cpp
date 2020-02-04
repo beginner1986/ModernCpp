@@ -1,18 +1,16 @@
 #include <iostream>
+#include <numeric>
 
 int main()
 {
-	int limit;
-	std::cout << "Type the limit: ";
-	std::cin >> limit;
+	int x, y;
+	std::cout << "x = ";
+	std::cin >> x;
+	std::cout << "y = ";
+	std::cin >> y;
 
-	long long result = 0;
-	for (unsigned int i = 1; i <= limit; i++)
-		if (i % 3 == 0 || i % 5 == 0)
-			result += i;
-
-	std::cout << "The result is " << result << std::endl;
-	std::cin.get();
+	// C++ 17 feature
+	std::cout << "gcd(" << x << "," << y << ") = " << std::gcd(x, y) << std::endl;
 
 	return 0;
 }
