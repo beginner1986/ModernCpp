@@ -1,6 +1,7 @@
 #include <iostream>
 
-bool isPrime(const int x);
+int sumProperDivisors(const int num);
+void printAbundant(const int limit);
 
 int main()
 {
@@ -8,35 +9,36 @@ int main()
 	std::cout << "limit = ";
 	std::cin >> limit;
 
-	std::cout << std::endl << "Results: " << std::endl;
-
-	for (int i = 2; i < limit - 6; i++)
-	{
-		if (isPrime(i) && isPrime(i + 6))
-			std::cout << i << " - " << (i + 6) << std::endl;
-	}
+	printAbundant(limit);
 
 	return 0;
 }
 
-bool isPrime(const int x)
+int sumProperDivisors(const int num)
 {
-	if (x < 2)
-		return false;
-	else if (x == 2)
-		return true;
-	else if(x % 2 == 0 || x % 3 == 0)
+	int result = 1;
+
+	for (int i = 2; i <= std::sqrt(num); i++)
 	{
-		return false;
-	}
-	else
-	{
-		for (int i = 5; i * i < x; i += 6)
+		if (num % i == 0)
 		{
-			if (x % i == 0 || x % (i + 2) == 0)
-				return false;
+			if (i == (num / i))
+				result += i;
+			else
+				result += (i + num / i);
 		}
 	}
 
-	return true;
+	return result;
+}
+
+void printAbundant(const int limit)
+{
+	for (int num = 10; num <= limit; num++)
+	{
+		int sum = sumProperDivisors(num);
+
+		if (sum > num)
+			std::cout << num << " ; abundance = " << sum - num << std::endl;
+	}
 }
