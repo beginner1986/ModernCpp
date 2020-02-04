@@ -10,7 +10,7 @@ int main()
 	std::cin >> y;
 
 	// C++ 17 feature
-	std::cout << "gcd(" << x << "," << y << ") = " << std::gcd(x, y) << std::endl;
+	std::cout << "lcm(" << x << "," << y << ") = " << std::lcm(x, y) << std::endl;
 
 	return 0;
 }
