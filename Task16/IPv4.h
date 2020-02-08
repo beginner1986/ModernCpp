@@ -29,7 +29,7 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& os, const IPv4& a)
 	{
-		os  << static_cast<int>(a.data[0]) << '.'
+		os << static_cast<int>(a.data[0]) << '.'
 			<< static_cast<int>(a.data[1]) << '.'
 			<< static_cast<int>(a.data[2]) << '.'
 			<< static_cast<int>(a.data[3]);
@@ -52,6 +52,32 @@ public:
 		return is;
 	}
 
+	friend bool operator<(IPv4 const& a1, IPv4 const& a2) noexcept
+	{
+		return a1.toULong() < a2.toULong();
+	}
+
+	friend bool operator<=(IPv4 const& a1, IPv4 const& a2) noexcept
+	{
+		return a1.toULong() <= a2.toULong();
+	}
+
+	friend bool operator>(IPv4 const& a1, IPv4 const& a2) noexcept
+	{
+		return a1.toULong() > a2.toULong();
+	}
+
+	friend bool operator>=(IPv4 const& a1, IPv4 const& a2) noexcept
+	{
+		return a1.toULong() >= a2.toULong();
+	}
+
+	IPv4& operator++(int)
+	{
+		*this = IPv4(toULong() + 1);
+		return *this;
+	}
+
 	std::string toString() const
 	{
 		std::stringstream sstr;
@@ -62,8 +88,8 @@ public:
 	constexpr unsigned long toULong() const noexcept
 	{
 		return  (static_cast<unsigned long>(data[0]) << 24) |
-				(static_cast<unsigned long>(data[1]) << 16) |
-				(static_cast<unsigned long>(data[2]) << 8) |
-				static_cast<unsigned long>(data[3]);
+			(static_cast<unsigned long>(data[1]) << 16) |
+			(static_cast<unsigned long>(data[2]) << 8) |
+			static_cast<unsigned long>(data[3]);
 	}
 };
