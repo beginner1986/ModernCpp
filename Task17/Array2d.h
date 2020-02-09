@@ -12,7 +12,7 @@ private:
 	typedef T* iterator;
 	typedef T const* const_iterator;
 public:
-	Array2d() : arr(R* C) {}
+	Array2d() : arr(R * C) {}
 	explicit Array2d(std::initializer_list<T> init) : arr(init) {}
 
 	constexpr T* data() noexcept { return arr.data(); }
