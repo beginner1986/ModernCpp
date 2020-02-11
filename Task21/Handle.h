@@ -1,5 +1,7 @@
 #pragma once
 
+#define INVALID_HANDLE_VALUE -1
+
 template <typename Traits>
 class Handle
 {
@@ -51,3 +53,38 @@ public:
 
 	void swap(Handle<Traits>& other) noexcept { std::swap(m_value, other.operator bool); }
 };
+
+template <typename Traits>
+void swap(Handle<Traits>& left, Handle<Traits>& right) noexcept
+{
+	left.swap(right);
+}
+
+template <typename Traits>
+bool operator==(Handle<Traits> const& left, Handle<Traits> const& roght) noexcept
+{
+	return left.get() == right.get();
+}
+
+template <typename Traits>
+bool operator!=(Handle<Traits> const& left, Handle<Traits> const& right) noexcept
+{
+	return left.get() != right.get();
+}
+
+struct NullHandleTraits
+{
+	using pointer = HANDLE;
+	static pointer invalid() noexcept { return nullptr; }
+	static void close(pointer value) noexcept { CloseHandle(value); }
+};
+
+struct InvalidHandleTraits
+{
+	using pointer = HANDLE;
+	static pointer close(pointer value) noexcept { return INVALID_HANDLE_VALUE; }
+	static void close(pointer value) noexcept { CloseHandle(value); }
+};
+
+using NullHandle = Handle<NullHandleTraits>;
+using InvalidHandle = Handle<InvalidHandleTraits>;
