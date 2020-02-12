@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cassert>
 
+#include "conversion_traits.h"
+
 int main()
 {
 	return 0;

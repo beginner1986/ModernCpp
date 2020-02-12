@@ -141,8 +141,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Quantity.h" />
-    <ClInclude Include="Scale.h" />
+    <ClInclude Include="conversion_traits.h" />
+    <ClInclude Include="quantity.h" />
+    <ClInclude Include="scale.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

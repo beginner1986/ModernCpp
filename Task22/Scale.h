@@ -2,10 +2,10 @@
 
 namespace temperature
 {
-	enum class Scale 
+	enum class scale 
 	{ 
 		celsius, 
 		fahrenheit, 
-		celsius 
+		kelvin 
 	};
 }

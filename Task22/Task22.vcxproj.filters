@@ -9,10 +9,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Scale.h">
+    <ClInclude Include="quantity.h">
       <Filter>temperature</Filter>
     </ClInclude>
-    <ClInclude Include="Quantity.h">
+    <ClInclude Include="scale.h">
+      <Filter>temperature</Filter>
+    </ClInclude>
+    <ClInclude Include="conversion_traits.h">
       <Filter>temperature</Filter>
     </ClInclude>
   </ItemGroup>
