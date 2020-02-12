@@ -63,7 +63,7 @@ namespace temperature
 		}
 	};
 
-	template <scale S, scale R>
+	template <scale R, scale S>
 	constexpr quantity<R> temperature_cast(quantity<S> const q)
 	{
 		return quantity<R>(conversion_traits<S, R>::convert(static_cast<double>(q)));

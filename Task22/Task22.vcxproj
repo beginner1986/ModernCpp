@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="conversion_traits.h" />
+    <ClInclude Include="literals.h" />
     <ClInclude Include="quantity.h" />
     <ClInclude Include="scale.h" />
   </ItemGroup>

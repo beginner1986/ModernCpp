@@ -18,5 +18,8 @@
     <ClInclude Include="conversion_traits.h">
       <Filter>temperature</Filter>
     </ClInclude>
+    <ClInclude Include="literals.h">
+      <Filter>temperature</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
